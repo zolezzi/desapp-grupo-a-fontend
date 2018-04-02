@@ -1,0 +1,43 @@
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+// html, body {
+//   margin: 0px;
+//   padding: 0px;
+// }
+// body{
+//   background-color: #f0f0f0;
+//   font-family: Roboto, 'Helvetice New', 'Arial', sans-serif
+// }
+// .full-background {
+//     position: fixed;
+//     background-image: url("assets/public/img/carpnd2.jpg");
+//     background-size: cover;
+//     height: 100%;
+//     width: 100%;
+//     top: 0;
+// }
+
+html, body{
+  height: 90%;
+}
+body {
+
+  background-image: url("assets/public/img/carpnd2.jpg");
+  background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+	background-color: #999;
+
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+.content {
+    position: relative;
+    z-index: 1;
+    margin: 20px;
+    background-color: rgba(255,255,255,.85);
+    padding: 20px;
+}
