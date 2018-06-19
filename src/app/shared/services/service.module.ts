@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { AUTH_PROVIDERS, AuthHttp } from 'angular2-jwt';
 import { UserResourceApiService } from './user-resource-api.service';
 
-import * as services from './index';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -13,7 +12,7 @@ import * as services from './index';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  providers: [services.UserService, UserResourceApiService]
+  providers: [UserResourceApiService]
 })
 export class ServiceModule {
 
