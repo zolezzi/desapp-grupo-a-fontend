@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { UserService } from '../shared/services/user.service';
+
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { AuthService } from "angular4-social-login";
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   private loggedIn: boolean;
   @Input('appComponent') appComponent: AppComponent;
 
-  constructor(private userService: UserService, private router: Router, private authService: AuthService) { }
+  constructor( private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
 
@@ -44,15 +44,6 @@ export class LoginComponent implements OnInit {
       this.appComponent.isLogin = true;
       this.router.navigate(['/home']);
     }
-  }
-
-  fbLogin() {
-    var body = document.getElementsByTagName('body')[0];
-    body.style.backgroundImage = 'url(/)';
-    this.myAppComponent = this.appComponent;
-    this.appComponent.isNotLogin = false;
-    this.appComponent.isLogin = true;
-    this.router.navigate(['/home']);
   }
 
   signInWithGoogle(): void {

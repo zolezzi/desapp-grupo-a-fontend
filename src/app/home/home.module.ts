@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
 import { ReactiveFormsModule,FormBuilder } from '@angular/forms';
-import * as services from '../shared/services/index';
+
 import { ComponentsModule } from '../components/components.module';
 import { HomeComponent } from './index';
 

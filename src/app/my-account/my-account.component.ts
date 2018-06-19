@@ -8,11 +8,13 @@ import { UserResourceApiService } from '../shared/services/user-resource-api.ser
 })
 export class MyAccountComponent implements OnInit {
 
-  constructor( protected userReosurceApiService:UserResourceApiService) { }
+  entity:any;
+
+  constructor( protected userResourceApiService:UserResourceApiService) { }
 
   ngOnInit() {
 
-    this.userReosurceApiService.searchUsers().subscribe(
+    this.userResourceApiService.searchUsers().subscribe(
             result => {
 
               console.log("RESULTADO: ",result);
@@ -24,5 +26,9 @@ export class MyAccountComponent implements OnInit {
         );
 
   }
+
+updateAccount($event){
+  this.userResourceApiService.update(this.entity);
+}
 
 }
