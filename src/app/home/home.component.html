@@ -1,13 +1,19 @@
-<div class="wrapper">
+<div [hidden]="isLogin">
+  <app-login [homeComponent]="this"> </app-login>
+</div>
+
+<div [hidden]="isNotLogin" class="wrapper">
+<!-- <div class="wrapper">   -->
+  <app-navbar> </app-navbar>
     <div class="sidebar" data-color='green' data-image="">
+        <div class="sidebar-background"></div>
+
         <app-sidebar></app-sidebar>
-        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+
     </div>
     <div class="main-panel">
-        <app-navbar></app-navbar>
-        <router-outlet></router-outlet>
-        <!-- <div *ngIf="isMaps('maps')">
-            <app-footer></app-footer>
-        </div> -->
+
+        <router-outlet> </router-outlet>
+
     </div>
 </div>

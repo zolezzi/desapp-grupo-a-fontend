@@ -1,0 +1,123 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <div class="card-header" data-background-color="green">
+              <h4 class="title">Offer Vehicle</h4>
+          </div>
+
+          <div class="card-content">
+            <form>
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label for="selectTypeVehicle">Select Type Vehicle</label>
+                    <select class="form-control" id="selectTypeVehicle">
+                      <option disabled selected> Select Type Vehicle</option>
+                      <option value="1">Car</option>
+                      <option value="2">PickUp</option>
+                      <option value="3">Moto</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group form-black label-floating is-empty">
+                    <label for="selectVehicleRegistered">Select Vehicle Registered</label>
+                    <select class="form-control" id="selectVehicleRegistered">
+                      <option disabled selected> Select Vehicle Registered</option>
+                      <option value="1">Car</option>
+                      <option value="2">PickUp</option>
+                      <option value="3">Moto</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Patent</label>
+                    <input type="text" class="form-control" >
+                  </div>
+
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Model</label>
+                    <input type="text" class="form-control" >
+                  </div>
+
+                  <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Brand</label>
+                      <input type="text" class="form-control" >
+                  </div>
+
+                  <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Amount</label>
+                      <input type="number" class="form-control" >
+                  </div>
+
+                  <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Adress</label>
+                      <input type="text" class="form-control" >
+                  </div>
+
+                  <div class="form-group">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Image</label>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input name="imageSeletedId" [(ngModel)]="imageSelected" type="text" class="form-control" >
+                        </div>
+                        <div class="col-md-6">
+                          <button type="submit" (click)="addImage()" class="btn btn-success pull-right">Add Image</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="images?.length > 0" class="form-group">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" *ngFor="let li of images; let i = index" [attr.data-slide-to]="i" [ngClass]="{'active' : i == 0}"></li>
+                      </ol>
+                      <div class="carousel-inner">
+                        <div *ngFor="let image of images; index as s;" [ngClass]="s == 0 ? 'item active' : 'item'">
+                          <img class="d-block w-100" src="{{images[s]}}" alt="First slide + {{s}}">
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div *ngIf="images?.length == 0" class="no_carousel">
+                    Add an image please, Thank you!
+                  </div>
+
+                  <div class="form-group">
+                      <label>About Me vehicle</label>
+                      <div class="form-group form-black label-floating is-empty">
+                          <label class="control-label"> Description</label>
+                          <textarea class="form-control" rows="5"></textarea>
+                      </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn btn-danger pull-right">Cancel</button>
+              <button type="submit" class="btn btn-success pull-right">Create Offer</button>
+              <div class="clearfix"></div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserResourceApiService } from '../shared/services/user-resource-api.service';
+import { LocalStorageService } from 'ngx-webstorage';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-my-account',
@@ -8,27 +10,64 @@ import { UserResourceApiService } from '../shared/services/user-resource-api.ser
 })
 export class MyAccountComponent implements OnInit {
 
-  entity:any;
+  entity:User = {};
+  userSocial:any;
+  isCreate:boolean = true;
 
-  constructor( protected userResourceApiService:UserResourceApiService) { }
+  constructor( protected userResourceApiService:UserResourceApiService, protected localStorageService:LocalStorageService) { }
 
   ngOnInit() {
 
-    this.userResourceApiService.searchUsers().subscribe(
-            result => {
+    this.userSocial = this.localStorageService.retrieve('userSocial');
 
-              console.log("RESULTADO: ",result);
-
-            },
-            error => {
-                console.log(<any>error);
-            }
-        );
+    if(this.userSocial != undefined){
+      this.loadUserForSocialNetwork(this.userSocial)
+    }
 
   }
 
-updateAccount($event){
-  this.userResourceApiService.update(this.entity);
-}
+  loadUserForSocialNetwork(userSocial:any){
+
+    if(this.userSocial.provider === "GOOGLE"){
+      this.entity.idGoogle = this.userSocial.provider + "-" + this.userSocial.id;
+    }
+
+    if(this.userSocial.provider === "FACEBOOK"){
+      this.entity.idFacebook = this.userSocial.provider + "-" + this.userSocial.id;
+    }
+
+    this.userResourceApiService.getUserForSocialNetwork(this.entity).subscribe(result => {
+      console.log(result);
+      this.entity = result;
+      this.localStorageService.store('userCurrent', this.entity);
+      this.isCreate = this.entity.isRegister;
+
+    });
+
+  }
+
+  createAccount($event:any){
+    console.log("CREATE");
+
+    this.userResourceApiService.createUser(this.entity).subscribe(result => {
+      console.log(result);
+    });
+
+  }
+
+  updateAccount($event:any){
+    console.log("UPDATE");
+    if(this.userSocial.provider === "GOOGLE"){
+      this.entity.idGoogle = this.userSocial.provider + "-" + this.userSocial.id;
+    }
+
+    if(this.userSocial.provider === "FACEBOOK"){
+      this.entity.idFacebook = this.userSocial.provider + "-" + this.userSocial.id;
+    }
+
+    this.userResourceApiService.update(this.entity).subscribe(result => {
+      console.log(result);
+    });
+  }
 
 }

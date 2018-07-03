@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AUTH_PROVIDERS, AuthHttp } from 'angular2-jwt';
 import { UserResourceApiService } from './user-resource-api.service';
+import { VehicleResourceApiService } from './vehicle-resource-api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 /**
@@ -11,8 +13,8 @@ import { UserResourceApiService } from './user-resource-api.service';
  */
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
-  providers: [UserResourceApiService]
+  imports: [CommonModule, RouterModule, HttpClientModule],
+  providers: [UserResourceApiService, VehicleResourceApiService]
 })
 export class ServiceModule {
 

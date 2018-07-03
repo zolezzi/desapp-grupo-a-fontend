@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
+  private loggedIn: boolean;
+  isNotLogin: boolean = true;
+  isLogin: boolean = false;
 
   @ViewChild(NavbarComponent) navbar: NavbarComponent;
 

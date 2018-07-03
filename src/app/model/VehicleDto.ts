@@ -7,4 +7,18 @@ export interface VehicleDto {
 
     userId?: number;
 
+    vehicleType?: string;
+
+    passengerCapability?: number;
+
+    vehicleDescription?: string;
+
+    model?: string;
+
+    brand?: string;
+
+    patent?: string;
+
+    photos?: Array<string>;
+
 }

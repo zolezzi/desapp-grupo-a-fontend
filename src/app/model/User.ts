@@ -5,6 +5,8 @@ export interface User {
 
     name?: string;
 
+    lastName?: string;
+
     email?: string;
 
     reputation?: number;
@@ -14,5 +16,11 @@ export interface User {
     addressDto?: models.AddressDto;
 
     vehicles?: Array<models.VehicleDto>;
+
+    idFacebook?: string;
+
+    idGoogle?: string;
+
+    isRegister?: boolean;
 
 }

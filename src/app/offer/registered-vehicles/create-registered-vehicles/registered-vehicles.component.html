@@ -11,24 +11,24 @@
                 <form>
                     <div class="row">
                         <div class="col-md-5">
-                            <div class="form-group form-black label-floating is-empty">
-                              <select class="box" dtitle="Single Select" data-size="7">
-                                <option disabled selected> Choose city</option>
-                                <option value="1">Foobar</option>
-                                <option value="2">Is great</option>
-                              </select>
-                            </div>
+                          <div class="form-group form-black label-floating is-empty">
+                            <label for="selectTypeVehicle">Select Type Vehicle</label>
+                            <select class="form-control" [(ngModel)]="entity.vehicleType" name="typeVehicleCode" id="selectTypeVehicle">
+                              <option value="null" selected="selected"> Select Type Vehicle</option>
+                              <option *ngFor="let type of types" [value]="type.description">{{type.description}}</option>
+                            </select>
+                          </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group form-black label-floating is-empty">
-                                <label class="control-label">Username</label>
-                                <input type="text" class="form-control" >
+                                <label class="control-label">Patent</label>
+                                <input [(ngModel)]="entity.patent" name="patent" type="text" class="form-control" >
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group form-black label-floating is-empty">
-                                <label class="control-label">Email address</label>
-                                <input type="email" class="form-control" >
+                                <label class="control-label">Passenger Capability</label>
+                                <input [(ngModel)]="entity.passengerCapability" name="passengerCapability" type="text" class="form-control" >
                             </div>
                         </div>
                     </div>
@@ -36,14 +36,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group form-black label-floating is-empty">
-                                <label class="control-label">Fist Name</label>
-                                <input type="text" class="form-control" >
+                                <label class="control-label">Model</label>
+                                <input [(ngModel)]="entity.model" name="model" type="text" class="form-control" >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-black label-floating is-empty">
-                                <label class="control-label">Last Name</label>
-                                <input type="text" class="form-control" >
+                                <label class="control-label">Brand</label>
+                                <input [(ngModel)]="entity.brand" name="brand"  type="text" class="form-control" >
                             </div>
                         </div>
                     </div>
@@ -78,19 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>About Me</label>
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                    <textarea class="form-control" rows="5"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-success pull-right">Update Account</button>
+                    <button type="submit" (click)="registerVehicle()" class="btn btn-success pull-right">Register</button>
                     <div class="clearfix"></div>
                 </form>
             </div>

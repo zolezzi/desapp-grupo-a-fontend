@@ -1,0 +1,32 @@
+
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA,Optional, SkipSelf } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
+
+import { ReactiveFormsModule,FormBuilder } from '@angular/forms';
+import { MapsComponent } from './maps.component';
+
+import { AgmCoreModule } from '@agm/core';
+
+
+
+@NgModule({
+    imports: [ReactiveFormsModule,CommonModule, SharedModule,  AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyDlD2UVVjI-ySv5TJTeyUrZsCTYQjFaBeE',
+          libraries: ['places']})
+    ],
+    declarations: [MapsComponent],
+    exports: [MapsComponent, AgmCoreModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class MapModule {
+
+  constructor( @Optional() @SkipSelf() parentModule:MapModule) {
+    if (parentModule) {
+      throw new Error('MapModule is already loaded. ');
+    }
+
+    console.log('Load MapModule');
+  }
+
+}
