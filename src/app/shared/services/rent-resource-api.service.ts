@@ -24,7 +24,7 @@ export class RentResourceApiService {
       const path = this.basePath + this.url +'/get-rent/{rentId}'
           .replace('${' + 'rentId' + '}', String(rentId));
 
-       return this.http.get(path);
+       return this.httpClient.get(path);
 
   }
 
@@ -92,12 +92,12 @@ export class RentResourceApiService {
         return this.httpClient.post(path, params, httpOptions);
   }
 
-  public getRent(rentFilterDto:any) : Observable<any> {
+  public searchRents(rentId:number) : Observable<any> {
 
       const path = this.basePath + this.url +'/search-rents'
           .replace('${' + 'rentId' + '}', String(rentId));
 
-       return this.http.get(path);
+       return this.httpClient.get(path);
 
   }
 

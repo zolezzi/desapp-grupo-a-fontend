@@ -25,7 +25,7 @@ export class PublicationResourceApiService {
       const path = this.basePath + this.url +'/publication/${id}'
           .replace('${' + 'id' + '}', String(id));
 
-       return this.http.get(path);
+       return this.httpClient.get(path);
 
   }
 
@@ -45,7 +45,7 @@ export class PublicationResourceApiService {
         return this.httpClient.post(path, params, httpOptions);
   }
 
-  public setPublication(publicationDto: any): Observable<any>{
+  public updatePublication(publicationDto: any): Observable<any>{
         let json = JSON.stringify(publicationDto);
 
         let params = json;
@@ -66,7 +66,7 @@ export class PublicationResourceApiService {
       const path = this.basePath + this.url +'/delete-publication/${id}'
           .replace('${' + 'id' + '}', String(id));
 
-       return this.http.delete(path);
+       return this.httpClient.delete(path);
 
   }
 
@@ -75,7 +75,7 @@ export class PublicationResourceApiService {
       const path = this.basePath + this.url +'/get-user-publications'
           .replace('${' + 'id' + '}', String(id));
 
-       return this.http.get(path);
+       return this.httpClient.get(path);
 
   }
 
