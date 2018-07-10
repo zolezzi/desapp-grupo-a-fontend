@@ -29,12 +29,11 @@ export class ListRegisteredVehiclesComponent implements OnInit {
     this.filter = this.createFilter();
 
     this.userSocial = this.localStorageService.retrieve('userSocial');
-    console.log(this.userSocial);
     this.userCurrent = this.localStorageService.retrieve('userCurrent');
-    console.log(this.userCurrent);
 
     this.vehicleResourceApiService.allMyVehiclesRegitered(this.userCurrent.id).subscribe(result => {
-      this.vehicles = result.vehiclesDtos;
+      this.vehicles = result;
+      console.log("Input Value",this.vehicles);
     });
 
   }
@@ -57,6 +56,18 @@ export class ListRegisteredVehiclesComponent implements OnInit {
 
   register(){
     this.router.navigate(["offers/create/register-vehicle"]);
+  }
+
+  edit(vehicle){
+    this.router.navigate(["offers/register-vehicle/edit/"+vehicle.id+""]);
+  }
+
+  delete(vehicle){
+    this.vehicleResourceApiService.deleteVehicle(vehicle.id);
+  }
+
+  offerVehicle(vehicle){
+    this.router.navigate(["/offers/publish-vehicle/"+vehicle.id+""]);
   }
 
 }

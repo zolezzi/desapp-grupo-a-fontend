@@ -55,8 +55,9 @@ export class RegisteredVehiclesComponent implements OnInit {
 
   registerVehicle(){
     this.entity.userId = this.userCurrent.id;
+    console.log("Input Value:", this.entity);
     this.vehicleResourceApiService.addVehicle(this.entity).subscribe(result => {
-      console.log(result);
+      console.log("Output Value:",result);
     });
   }
 

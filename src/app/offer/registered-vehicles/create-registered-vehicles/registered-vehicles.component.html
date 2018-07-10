@@ -58,25 +58,16 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <label class="control-label">City</label>
-                                <input type="text" class="form-control" >
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <label class="control-label">Country</label>
-                                <input type="text" class="form-control" >
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <label class="control-label">Postal Code</label>
-                                <input type="text" class="form-control" >
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label"> Description</label>
+                                    <textarea class="form-control" [(ngModel)]="entity.description" rows="5" name="description"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
+
 
                     <button type="submit" (click)="registerVehicle()" class="btn btn-success pull-right">Register</button>
                     <div class="clearfix"></div>

@@ -79,18 +79,26 @@
                         <table class="table">
                             <thead class="text-success">
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Country</th>
-                                    <th>City</th>
-                                    <th>Salary</th>
+                                    <th>Model</th>
+                                    <th>Brand</th>
+                                    <th>Passenger Capability</th>
+                                    <th>Type Vehicle</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td class="text-danger">$36,738</td>
+                                <tr *ngFor="let vehicle of vehicles">
+                                    <td>{{vehicle.model}}</td>
+                                    <td>{{vehicle.brand}}</td>
+                                    <td>{{vehicle.passengerCapability}}</td>
+                                    <td>{{vehicle.vehicleType}}</td>
+                                    <td>
+                                      <span>
+                                        <a (click)="edit(vehicle)"><i class="material-icons">edit</i></a>
+                                        <a (click)="delete(vehicle)"><i class="material-icons">delete</i></a>
+                                        <a (click)="offerVehicle(vehicle)"><i class="material-icons">local_offer</i></a>
+                                      </span>
+                                    </td>
                                 </tr>
                               </tbody>
                         </table>
