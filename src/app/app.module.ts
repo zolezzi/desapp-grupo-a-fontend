@@ -25,7 +25,7 @@ import { MyAccountModule } from './my-account/my-account.module';
 import { CreditAmountModule } from './credit-amount/credit-amount.module';
 import { OfferModule } from './offer/offer.module';
 import { RentModule } from './rent/rent.module';
-import { MapModule } from './maps/map.module';
+
 
 import { routes } from './app.routes';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
@@ -56,7 +56,7 @@ export function provideConfig() {
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(routes), NgbModule.forRoot(), DatepickerModule.forRoot(), BsDatepickerModule.forRoot(), HttpModule, ServiceModule, SharedModule, Ng2Webstorage,
-    HomeModule, DashboardModule, ComponentsModule, MyAccountModule, CreditAmountModule, OfferModule, RentModule, NotificationModule, MapModule, SocialLoginModule.initialize(config)
+    HomeModule, DashboardModule, ComponentsModule, MyAccountModule, CreditAmountModule, OfferModule, RentModule, NotificationModule, SocialLoginModule.initialize(config)
   ],
   providers: [
     ...AUTH_PROVIDERS,
