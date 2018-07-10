@@ -7,9 +7,9 @@ export interface AddressDto {
 
     comments?: string;
 
-    coordLat?: number;
+    latitude?: number;
 
-    coordLong?: number;
+    longitude?: number;
 
     streetNumber?: string;
 

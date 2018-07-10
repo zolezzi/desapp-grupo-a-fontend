@@ -19,6 +19,4 @@ export interface VehicleDto {
 
     patent?: string;
 
-    photos?: Array<string>;
-
 }
