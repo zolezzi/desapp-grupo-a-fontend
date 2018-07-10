@@ -72,25 +72,32 @@
                 <div class="card">
 
                     <div class="card-header" data-background-color="green">
-                        <h4 class="title">Simple Table</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                        <h4 class="title">Result</h4>
+                        <p class="category">all for you publications</p>
                     </div>
                     <div class="card-content table-responsive">
                         <table class="table">
                             <thead class="text-success">
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Country</th>
-                                    <th>City</th>
-                                    <th>Salary</th>
+                                    <th>Image</th>
+                                    <th>Offerent</th>
+                                    <th>Brand</th>
+                                    <th>Model</th>
+                                    <th>Rent Price</th>
+                                    <th>Starting Date</th>
+                                    <th>Ending Date</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td class="text-danger">$36,738</td>
+                                <tr *ngFor="let publication of publications; let i = index">
+                                    <td><img src="{{publication?.photos[0]}}" width="42px" height="42px" /></td>
+                                    <td>{{publication.userOfferentName}}</td>
+                                    <td>{{publication.brand}}</td>
+                                    <td>{{publication.model}}</td>
+                                    <td class="text-success">{{publication.rentPrice}}</td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                               </tbody>
                         </table>

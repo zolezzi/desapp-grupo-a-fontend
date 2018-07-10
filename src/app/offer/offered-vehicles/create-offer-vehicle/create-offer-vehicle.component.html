@@ -14,49 +14,39 @@
               <div class="row">
 
                 <div class="col-md-6">
+
                   <div class="form-group form-black label-floating is-empty">
-                    <label for="selectTypeVehicle">Select Type Vehicle</label>
-                    <select class="form-control" id="selectTypeVehicle">
-                      <option disabled selected> Select Type Vehicle</option>
-                      <option value="1">Car</option>
-                      <option value="2">PickUp</option>
-                      <option value="3">Moto</option>
+                    <label for="selectVehicleRegistered">Vehicles Registered</label>
+                    <select class="form-control" id="selectVehicleRegistered" [(ngModel)]="entity.vehicleId"  name="publicationVehicleId">
+                      <option disabled selected> Select Vehicle</option>
+                      <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.model}} - {{vehicle.brand}}</option>
                     </select>
                   </div>
 
-                  <div class="form-group form-black label-floating is-empty">
-                    <label for="selectVehicleRegistered">Select Vehicle Registered</label>
-                    <select class="form-control" id="selectVehicleRegistered">
-                      <option disabled selected> Select Vehicle Registered</option>
-                      <option value="1">Car</option>
-                      <option value="2">PickUp</option>
-                      <option value="3">Moto</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group form-black label-floating is-empty">
+                  <div class="form-group form-black is-empty">
                     <label class="control-label">Patent</label>
-                    <input type="text" class="form-control" >
-                  </div>
-
-                  <div class="form-group form-black label-floating is-empty">
-                    <label class="control-label">Model</label>
-                    <input type="text" class="form-control" >
-                  </div>
-
-                  <div class="form-group form-black label-floating is-empty">
-                      <label class="control-label">Brand</label>
-                      <input type="text" class="form-control" >
+                    <input type="text" disabled="disabled" class="form-control" [(ngModel)]="vehicle.patent" name="patent" >
                   </div>
 
                   <div class="form-group form-black label-floating is-empty">
                       <label class="control-label">Amount</label>
-                      <input type="number" class="form-control" >
+                      <input type="number" [(ngModel)]="entity.rentPrice" name="rentPrice" class="form-control" >
                   </div>
 
-                  <div class="form-group form-black label-floating is-empty">
-                      <label class="control-label">Adress</label>
-                      <input type="text" class="form-control" >
+                  <div class="form-group">
+                    <div class="form-group form-black label-floating is-empty">
+                      <!-- <label class="control-label"> Address</label> -->
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label class="control-label">Withdraw Address</label>
+                          <app-maps (addressEventEmitter)="entity.withdrawAddress=$event"></app-maps>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="control-label">Return Address</label>
+                          <app-maps (addressEventEmitter)="entity.returnAddress=$event"></app-maps>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -101,16 +91,48 @@
                       <label>About Me vehicle</label>
                       <div class="form-group form-black label-floating is-empty">
                           <label class="control-label"> Description</label>
-                          <textarea class="form-control" rows="5"></textarea>
+                          <textarea class="form-control" [(ngModel)]="entity.description" name="description" rows="5"></textarea>
                       </div>
                   </div>
+
+                </div>
+                <div class="col-md-6">
+
+                  <div class="form-group form-black label-floating is-empty">
+                    <label for="selectTypeVehicle">Select Type Vehicle</label>
+                    <select disabled="disabled" class="form-control" [(ngModel)]="vehicle.vehicleType" name="typeVehicleCode" id="selectTypeVehicle">
+                      <option value="null" selected="selected"> Select Type Vehicle</option>
+                      <option *ngFor="let type of types" [value]="type.description">{{type.description}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group form-black is-empty">
+                    <label class="control-label">Model</label>
+                    <input type="text" disabled="disabled"  [(ngModel)]="vehicle.model" name="model" class="form-control" >
+                  </div>
+
+                  <div class="form-group form-black is-empty">
+                      <label class="control-label">Brand</label>
+                      <input type="text" disabled="disabled" [(ngModel)]="vehicle.brand" name="brand" class="form-control" >
+                  </div>
+
+                  <div class="form-group form-black is-empty">
+                    <label class="control-label">Starting Date :</label>
+                    <input type="text" class="form-control" name="startingDate" [(ngModel)]="entity.startingDate" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
+                  </div>
+
+                  <div class="form-group form-black is-empty">
+                    <label class="control-label">Ending Date :</label>
+                    <input type="text" class="form-control" name="endingDate" [(ngModel)]="entity.endingDate" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
+                  </div>
+
 
                 </div>
 
               </div>
 
               <button type="submit" class="btn btn-danger pull-right">Cancel</button>
-              <button type="submit" class="btn btn-success pull-right">Create Offer</button>
+              <button type="submit" (click)="createPublication()" class="btn btn-success pull-right">Create Offer</button>
               <div class="clearfix"></div>
 
             </form>
