@@ -12,8 +12,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Cuil</label>
-                                    <input type="text" [(ngModel)]="entity.cuil" class="form-control" name="username">
+
+                                    <input type="text" id="cuil" class="validate" [(ngModel)]="entity.cuil" class="form-control" name="cuil">
+                                    <label [ngClass]="{'active': entity?.cuil}" for="cuil" class="control-label">Cuil</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -41,41 +42,11 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Address</label>
-                                    <input type="text" class="form-control" name="address">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">City</label>
-                                    <input type="text" class="form-control" name="city">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Country</label>
-                                    <input type="text" class="form-control" name="country">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Postal Code</label>
-                                    <input type="text" class="form-control" name="code">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label>About Me</label>
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="control-label"> Description</label>
-                                        <textarea class="form-control" rows="5" name="description"></textarea>
+                                        <textarea class="form-control" [(ngModel)]="entity.description" rows="5" name="description"></textarea>
                                     </div>
                                 </div>
                             </div>

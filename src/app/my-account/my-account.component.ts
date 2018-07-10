@@ -3,6 +3,8 @@ import { UserResourceApiService } from '../shared/services/user-resource-api.ser
 import { LocalStorageService } from 'ngx-webstorage';
 import { User } from '../model/User';
 
+declare var Materialize:any;
+
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
@@ -68,6 +70,10 @@ export class MyAccountComponent implements OnInit {
     this.userResourceApiService.update(this.entity).subscribe(result => {
       console.log(result);
     });
+  }
+
+  ngAfterViewInit(){
+    //Materialize.updateTextFields();
   }
 
 }
