@@ -9,7 +9,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class UserResourceApiService {
 
-  protected basePath = 'http://localhost:8080/rest';
+  protected basePath = 'http://localhost:8080/services';
   public defaultHeaders : Headers = new Headers();
   public url : string = '/users/';
 

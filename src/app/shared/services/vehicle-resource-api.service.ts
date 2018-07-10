@@ -10,7 +10,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class VehicleResourceApiService {
 
-  protected basePath = 'http://localhost:8080/rest';
+  protected basePath = 'http://localhost:8080/services';
   public defaultHeaders : Headers = new Headers();
   public url : string = '/vehicles';
 

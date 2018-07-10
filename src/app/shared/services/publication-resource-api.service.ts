@@ -10,7 +10,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class PublicationResourceApiService {
 
-  protected basePath = 'http://localhost:8080/rest';
+  protected basePath = 'http://localhost:8080/services';
   public defaultHeaders : Headers = new Headers();
   public url : string = '/publications';
 
@@ -72,7 +72,7 @@ export class PublicationResourceApiService {
 
   public getUserPublications(id:number) : Observable<any> {
 
-      const path = this.basePath + this.url +'/get-user-publications'
+      const path = this.basePath + this.url +'/get-user-publications/${id}'
           .replace('${' + 'id' + '}', String(id));
 
        return this.httpClient.get(path);
