@@ -1,44 +1,29 @@
-<!-- <div id="map"></div> -->
-<!-- <div #gmap style=”width:100%;height:400px”></div> -->
-<!-- <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map> -->
-
-<div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header" data-background-color="green">
-              <h4 class="title">Write your address</h4>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card-content">
-                <div class="clearfix"></div>
-                <div class="form-group form-black">
-                  <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-                </div>
-                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-                  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-                </agm-map>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="form-group form-black">
+  <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
 </div>
+<agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+</agm-map>
 
-<!-- <div class="container">
-  <h1>Angular 2 + Google Maps Places Autocomplete</h1>
-  <div class="form-group">
-    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-  </div>
-  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-  </agm-map>
-</div> -->
+<!-- <agm-map #googleMap *ngIf="showMap" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+  <agm-marker  [latitude]="latitudeMarker" [longitude]="longitudeMarker" [markerDraggable]="true" [label]="label | translate" (dragEnd)="markerDragEnd($event)">
+    <agm-info-window>
+
+      <strong> {{'app.map.type' | translate}} </strong>:
+
+      <label *ngIf="account.typeAccountCode == 'Pos' "> {{'app.account.page.pos' | translate}} </label>
+      <label *ngIf="account.typeAccountCode == 'Dist' "> {{'app.account.page.distributor' | translate}} </label>
+
+      <br>
+
+      <strong>{{'app.map.account' | translate}} </strong>:
+      <label> {{account.businessName}} </label>
+
+      <br>
+
+      <strong>{{'app.map.address' | translate}} </strong>:
+      <label> {{account.addressDto.addressStr}} </label>
+
+    </agm-info-window>
+  </agm-marker>
+</agm-map> -->

@@ -5,18 +5,19 @@ import { SharedModule } from '../shared/shared.module';
 
 import { ReactiveFormsModule,FormBuilder } from '@angular/forms';
 import { MapsComponent } from './maps.component';
+import { PageMapComponent } from './page-map.component';
 
 import { AgmCoreModule } from '@agm/core';
 
 
 
 @NgModule({
-    imports: [ReactiveFormsModule,CommonModule, SharedModule,  AgmCoreModule.forRoot({
+    imports: [ReactiveFormsModule,CommonModule,  AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDlD2UVVjI-ySv5TJTeyUrZsCTYQjFaBeE',
           libraries: ['places']})
     ],
-    declarations: [MapsComponent],
-    exports: [MapsComponent, AgmCoreModule],
+    declarations: [MapsComponent, PageMapComponent],
+    exports: [MapsComponent, AgmCoreModule, PageMapComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MapModule {
