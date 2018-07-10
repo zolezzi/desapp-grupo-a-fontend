@@ -23,6 +23,10 @@ export const OfferRoutes: Route[] = [
     component:RegisteredVehiclesComponent
   },
   {
+    path:'offers/register-vehicle/edit/:id',
+    component:RegisteredVehiclesComponent
+  },
+  {
     path:'offers/offered-vehicles',
     component:ListOfferedVehiclesComponent
   },
@@ -35,7 +39,15 @@ export const OfferRoutes: Route[] = [
     component:ListRentedVehiclesComponent
   },
   {
-    path:'offers/register-vehicle',
+    path:'offers/publish-vehicle/new',
+    component:CreateOfferVehicleComponent
+  },
+  {
+    path:'offers/publish-vehicle/:id',
+    component:CreateOfferVehicleComponent
+  },
+  {
+    path:'offers/publish-vehicle/edit/:id',
     component:CreateOfferVehicleComponent
   }
 
