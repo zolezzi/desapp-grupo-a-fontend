@@ -1,8 +1,8 @@
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    {{'login.title' | translate}}
   </h1>
-  <h3> (Pick and Drive)</h3>
+  <h3> {{'login.subTitle' | translate}}</h3>
   <img width="200" alt="Angular Logo" src="/assets/public/img/car-flag-icons-66840.png">
 
   <!-- <div class="navbar navbar-default navbar-fixed-top"> </div> -->
@@ -11,8 +11,8 @@
     <div *ngIf="!user" class="card text-center">
 
       <div class="card-block">
-        <h4 class="card-title">Not signed in</h4>
-        <p class="card-text">Sign in with</p>
+        <h4 class="card-title">{{'login.notSignedIn' | translate}}</h4>
+        <p class="card-text">{{'login.signInWith' | translate}}</p>
       </div>
       <div class="card-block">
         <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
@@ -28,7 +28,7 @@
         <p class="card-text">{{ user.email }}</p>
       </div>
       <div class="card-block">
-        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+        <button class="btn btn-danger" (click)="signOut()">{{'login.signOut' | translate}}</button>
       </div>
 
     </div>

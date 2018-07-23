@@ -5,7 +5,7 @@
         <div class="card">
 
           <div class="card-header" data-background-color="green">
-              <h4 class="title">Offer Vehicle</h4>
+              <h4 class="title">{{'offer.vehicle.title' | translate }}</h4>
           </div>
 
           <div class="card-content">
@@ -16,20 +16,20 @@
                 <div class="col-md-6">
 
                   <div class="form-group form-black label-floating is-empty">
-                    <label for="selectVehicleRegistered">Vehicles Registered</label>
+                    <label for="selectVehicleRegistered">{{'offer.vehicle.registeredVehicles' | translate }}</label>
                     <select class="form-control" id="selectVehicleRegistered" [(ngModel)]="entity.vehicleId"  name="publicationVehicleId">
-                      <option disabled selected> Select Vehicle</option>
-                      <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.model}} - {{vehicle.brand}}</option>
+                      <option disabled selected>{{'offer.vehicle.selectVehicle' | translate }}</option>
+                      <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.model | translate }} - {{vehicle.brand | translate }}</option>
                     </select>
                   </div>
 
                   <div class="form-group form-black is-empty">
-                    <label class="control-label">Patent</label>
+                    <label class="control-label">{{'offer.vehicle.patent' | translate}}</label>
                     <input type="text" disabled="disabled" class="form-control" [(ngModel)]="vehicle.patent" name="patent" >
                   </div>
 
                   <div class="form-group form-black label-floating is-empty">
-                      <label class="control-label">Amount</label>
+                      <label class="control-label">{{'offer.vehicle.amount' | translate}}</label>
                       <input type="number" [(ngModel)]="entity.rentPrice" name="rentPrice" class="form-control" >
                   </div>
 
@@ -38,11 +38,11 @@
                       <!-- <label class="control-label"> Address</label> -->
                       <div class="row">
                         <div class="col-md-6">
-                          <label class="control-label">Withdraw Address</label>
+                          <label class="control-label">{{'offer.vehicle.withdrawAddress' | translate}}</label>
                           <app-maps (addressEventEmitter)="entity.withdrawAddress=$event"></app-maps>
                         </div>
                         <div class="col-md-6">
-                          <label class="control-label">Return Address</label>
+                          <label class="control-label">{{'offer.vehicle.returnAddress' | translate}}</label>
                           <app-maps (addressEventEmitter)="entity.returnAddress=$event"></app-maps>
                         </div>
                       </div>
@@ -51,13 +51,13 @@
 
                   <div class="form-group">
                     <div class="form-group form-black label-floating is-empty">
-                      <label class="control-label">Image</label>
+                      <label class="control-label">{{'offer.vehicle.image' | translate}}</label>
                       <div class="row">
                         <div class="col-md-6">
                           <input name="imageSeletedId" [(ngModel)]="imageSelected" type="text" class="form-control" >
                         </div>
                         <div class="col-md-6">
-                          <button type="submit" (click)="addImage()" class="btn btn-success pull-right">Add Image</button>
+                      <button type="submit" (click)="addImage()" class="btn btn-success pull-right">{{'offer.vehicle.addImage' | translate}}</button>
                         </div>
                       </div>
                     </div>
@@ -75,22 +75,22 @@
                       </div>
                       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                        <span class="sr-only">{{'offer.vehicle.previous' | translate}}</span>
                       </a>
                       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                        <span class="sr-only">{{'offer.vehicle.next' | translate}}</span>
                       </a>
                     </div>
                   </div>
                   <div *ngIf="images?.length == 0" class="no_carousel">
-                    Add an image please, Thank you!
+                    {{'offer.vehicle.addAnImage' | translate}}
                   </div>
 
                   <div class="form-group">
-                      <label>About Me vehicle</label>
+                      <label>{{'offer.vehicle.aboutMyVehicle' | translate}}</label>
                       <div class="form-group form-black label-floating is-empty">
-                          <label class="control-label"> Description</label>
+                          <label class="control-label">{{'offer.vehicle.description' | translate}}</label>
                           <textarea class="form-control" [(ngModel)]="entity.description" name="description" rows="5"></textarea>
                       </div>
                   </div>
@@ -99,30 +99,30 @@
                 <div class="col-md-6">
 
                   <div class="form-group form-black label-floating is-empty">
-                    <label for="selectTypeVehicle">Select Type Vehicle</label>
+                    <label for="selectTypeVehicle">{{'offer.vehicle.selectVehicleType' | translate}}</label>
                     <select disabled="disabled" class="form-control" [(ngModel)]="vehicle.vehicleType" name="typeVehicleCode" id="selectTypeVehicle">
-                      <option value="null" selected="selected"> Select Type Vehicle</option>
+                      <option value="null" selected="selected">{{'offer.vehicle.selectVehicleType | translate'}}</option>
                       <option *ngFor="let type of types" [value]="type.description">{{type.description}}</option>
                     </select>
                   </div>
 
                   <div class="form-group form-black is-empty">
-                    <label class="control-label">Model</label>
+                    <label class="control-label">{{'offer.vehicle.model' | translate}}</label>
                     <input type="text" disabled="disabled"  [(ngModel)]="vehicle.model" name="model" class="form-control" >
                   </div>
 
                   <div class="form-group form-black is-empty">
-                      <label class="control-label">Brand</label>
+                      <label class="control-label">{{'offer.vehicle.brand' | translate}}</label>
                       <input type="text" disabled="disabled" [(ngModel)]="vehicle.brand" name="brand" class="form-control" >
                   </div>
 
                   <div class="form-group form-black is-empty">
-                    <label class="control-label">Starting Date :</label>
+                    <label class="control-label">{{'offer.vehicle.startingDate' | translate}} :</label>
                     <input type="text" class="form-control" name="startingDate" [(ngModel)]="entity.startingDate" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
                   </div>
 
                   <div class="form-group form-black is-empty">
-                    <label class="control-label">Ending Date :</label>
+                    <label class="control-label">{{'offer.vehicle.endingDate' | translate}} :</label>
                     <input type="text" class="form-control" name="endingDate" [(ngModel)]="entity.endingDate" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
                   </div>
 
@@ -131,8 +131,8 @@
 
               </div>
 
-              <button type="submit" class="btn btn-danger pull-right">Cancel</button>
-              <button type="submit" (click)="createPublication()" class="btn btn-success pull-right">Create Offer</button>
+              <button type="submit" class="btn btn-danger pull-right">{{'cancel' | translate}}</button>
+              <button type="submit" (click)="createPublication()" class="btn btn-success pull-right">{{'offer.vehicle.createOffer' | translate}}</button>
               <div class="clearfix"></div>
 
             </form>
