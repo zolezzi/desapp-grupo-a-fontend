@@ -1,6 +1,10 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { AuthService } from "angular4-social-login";
+import { SocialUser } from "angular4-social-login";
+import { LocalStorageService } from 'ngx-webstorage';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,10 +16,12 @@ export class NavbarComponent implements OnInit {
     location: Location;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    router:any;
 
-    constructor(location: Location,  private element: ElementRef) {
+    constructor(location: Location,  private element: ElementRef, protected route: ActivatedRoute, router:Router, private authService: AuthService, protected localStorageService:LocalStorageService) {
       this.location = location;
-          this.sidebarVisible = false;
+      this.sidebarVisible = false;
+      this.router = router;
     }
 
     ngOnInit(){
@@ -63,5 +69,12 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }
+
+    signOut(){debugger;
+      this.localStorageService.clear('userSocial');
+      this.localStorageService.clear('userCurrent');
+      this.authService.signOut();
+      this.router.navigate(['login']);
     }
 }
