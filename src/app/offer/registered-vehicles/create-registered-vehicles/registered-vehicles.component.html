@@ -14,7 +14,7 @@
                           <div class="form-group form-black label-floating is-empty">
                             <label for="selectTypeVehicle">Select Type Vehicle</label>
                             <select class="form-control" [(ngModel)]="entity.vehicleType" name="typeVehicleCode" id="selectTypeVehicle">
-                              <option value="null" selected="selected"> Select Type Vehicle</option>
+                              <option [value]="null" selected> Select Type Vehicle</option>
                               <option *ngFor="let type of types" [value]="type.description">{{type.description}}</option>
                             </select>
                           </div>

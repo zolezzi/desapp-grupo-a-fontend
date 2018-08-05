@@ -17,7 +17,7 @@
 
                   <div class="form-group form-black label-floating is-empty">
                     <label for="selectVehicleRegistered">Vehicles Registered</label>
-                    <select class="form-control" id="selectVehicleRegistered" [(ngModel)]="entity.vehicleId"  name="publicationVehicleId">
+                    <select class="form-control" disabled="isSelectVehicleRegistered" id="selectVehicleRegistered" [(ngModel)]="entity.vehicleId"  name="publicationVehicleId">
                       <option disabled selected> Select Vehicle</option>
                       <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.model}} - {{vehicle.brand}}</option>
                     </select>
@@ -132,7 +132,8 @@
               </div>
 
               <button type="submit" class="btn btn-danger pull-right">Cancel</button>
-              <button type="submit" (click)="createPublication()" class="btn btn-success pull-right">Create Offer</button>
+              <button *ngIf="isCreatePublication" type="submit" (click)="createPublication()" class="btn btn-success pull-right">Create Offer</button>
+              <button *ngIf="isANewRent" type="submit" (click)="rent()" class="btn btn-success pull-right">Rent</button>
               <div class="clearfix"></div>
 
             </form>

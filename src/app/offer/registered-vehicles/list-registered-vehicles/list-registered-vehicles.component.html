@@ -76,7 +76,7 @@
                         <p class="category">Your vehicles registered</p>
                     </div>
                     <div class="card-content table-responsive">
-                        <table class="table">
+                        <table class="table table-striped" [mfData]="vehicles" #mf="mfDataTable" [mfRowsOnPage]="2" >
                             <thead class="text-success">
                                 <tr>
                                     <th>Model</th>
@@ -87,7 +87,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let vehicle of vehicles">
+                                <tr *ngFor="let vehicle of mf.data">
                                     <td>{{vehicle.model}}</td>
                                     <td>{{vehicle.brand}}</td>
                                     <td>{{vehicle.passengerCapability}}</td>
@@ -101,6 +101,13 @@
                                     </td>
                                 </tr>
                               </tbody>
+                              <tfoot>
+                                 <tr>
+                                     <td colspan="4">
+                                         <mfBootstrapPaginator [rowsOnPageSet]="[2,4,6]"></mfBootstrapPaginator>
+                                     </td>
+                                 </tr>
+                              </tfoot>
                         </table>
 
                     </div>

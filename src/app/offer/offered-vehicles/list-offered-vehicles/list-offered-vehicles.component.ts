@@ -40,4 +40,13 @@ export class ListOfferedVehiclesComponent implements OnInit {
     this.router.navigate(["offers/publish-vehicle/new"]);
   }
 
+  edit(publication:any){
+    this.router.navigate(["offers/publish-vehicle/edit/"+publication.id]);
+  }
+
+  delete(publication:any){
+    this.publicationResourceApiService.deletePublication(publication.id);
+  }
+
+
 }

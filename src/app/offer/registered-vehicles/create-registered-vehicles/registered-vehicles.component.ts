@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'ngx-webstorage';
 import { UserResourceApiService } from '../../../shared/services/user-resource-api.service';
 import { VehicleResourceApiService } from '../../../shared/services/vehicle-resource-api.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registered-vehicles',
@@ -11,12 +12,16 @@ import { VehicleResourceApiService } from '../../../shared/services/vehicle-reso
 export class RegisteredVehiclesComponent implements OnInit {
 
   entity:any = {};
+  router:any;
   userSocial:any;
   userCurrent:any = {};
   types: Array<any> = [];
 
-  constructor(protected userResourceApiService:UserResourceApiService, protected localStorageService:LocalStorageService,
-    protected vehicleResourceApiService:VehicleResourceApiService) { }
+  constructor(protected route: ActivatedRoute, router:Router, protected userResourceApiService:UserResourceApiService, protected localStorageService:LocalStorageService,
+    protected vehicleResourceApiService:VehicleResourceApiService) {
+
+      this.router = router;
+    }
 
   ngOnInit() {
 
@@ -57,7 +62,7 @@ export class RegisteredVehiclesComponent implements OnInit {
     this.entity.userId = this.userCurrent.id;
     console.log("Input Value:", this.entity);
     this.vehicleResourceApiService.addVehicle(this.entity).subscribe(result => {
-      console.log("Output Value:",result);
+      this.router.navigate(["offers"]);
     });
   }
 

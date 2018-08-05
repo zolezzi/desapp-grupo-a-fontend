@@ -86,7 +86,7 @@
                                     <th>Rent Price</th>
                                     <th>Starting Date</th>
                                     <th>Ending Date</th>
-
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -96,8 +96,14 @@
                                     <td>{{publication.brand}}</td>
                                     <td>{{publication.model}}</td>
                                     <td class="text-success">{{publication.rentPrice}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{publication.startingDate}}</td>
+                                    <td>{{publication.endingDate}}</td>
+                                    <td>
+                                      <span>
+                                        <a (click)="edit(publication)"><i class="material-icons">edit</i></a>
+                                        <a (click)="delete(publication)"><i class="material-icons">delete</i></a>
+                                      </span>
+                                    </td>
                                 </tr>
                               </tbody>
                         </table>

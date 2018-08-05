@@ -49,6 +49,10 @@ export const OfferRoutes: Route[] = [
   {
     path:'offers/publish-vehicle/edit/:id',
     component:CreateOfferVehicleComponent
+  },
+  {
+    path:'rents/rent-vehicle/new/:id',
+    component:CreateOfferVehicleComponent
   }
 
 ];

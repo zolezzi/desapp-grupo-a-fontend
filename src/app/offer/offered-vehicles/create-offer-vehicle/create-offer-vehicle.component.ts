@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserResourceApiService } from '../../../shared/services/user-resource-api.service';
 import { VehicleResourceApiService } from '../../../shared/services/vehicle-resource-api.service';
 import { PublicationResourceApiService } from '../../../shared/services/publication-resource-api.service';
+import { RentResourceApiService } from '../../../shared/services/rent-resource-api.service';
 import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
@@ -22,10 +23,15 @@ export class CreateOfferVehicleComponent implements OnInit {
   userCurrent:any;
   types: Array<any> = [];
   disabled: boolean = true;
+  vehicleId : number;
+  isANewRent: boolean;
+  isSelectVehicleRegistered:boolean = true;
+  entityRent: any = {};
+  isCreatePublication:boolean = true;
 
   constructor(protected route: ActivatedRoute, router:Router, protected userResourceApiService:UserResourceApiService,
     protected vehicleResourceApiService:VehicleResourceApiService, protected publicationResourceApiService:PublicationResourceApiService,
-    protected localStorageService:LocalStorageService) {
+    protected localStorageService:LocalStorageService, protected rentResourceApiService:RentResourceApiService) {
 
       this.router = route;
   }
@@ -34,30 +40,78 @@ export class CreateOfferVehicleComponent implements OnInit {
 
     this.images = [];
 
-    var vehicleId = this.router.snapshot.params["id"];
+    var vehicleIdForParameter = this.router.snapshot.params["id"];
 
-    console.log("ID:", vehicleId);
+    this.vehicleId = Number(vehicleIdForParameter);
+
+    var value = this.router.snapshot.url[2].path;
 
     this.userCurrent = this.localStorageService.retrieve('userCurrent');
 
+    if(value === "new"){
+      this.loadPublicationForRent();
+    }
+
+    if(value === "edit"){
+      this.loadEditPublication();
+    }
+
+    if(value != "edit" && value != "new"){
+      this.newPublication();
+    }
+
+    this.vehicleResourceApiService.searchAllTypeVehicle().subscribe(result => {
+      this.types = result;
+    });
+
+  }
+
+  loadPublicationForRent(){
+    this.isANewRent = true;
+    this.isCreatePublication = false;
+    this.vehicles = [];
+    var publicationId = this.router.snapshot.params["id"];
+
+    this.publicationResourceApiService.getPublication(Number(publicationId)).subscribe(result => {
+
+      this.entity = result;
+      this.entity.startingDate = new Date(this.entity.startingDate+'T00:00:00');
+      this.entity.endingDate = new Date(this.entity.endingDate+'T00:00:00');
+      this.images = this.entity.photos;
+
+      this.vehicleResourceApiService.getVehicle(this.entity.vehicleId).subscribe(result => {
+        this.vehicle = result;
+        this.vehicles.push(this.vehicle);
+      })
+
+    })
+
+  }
+
+  loadEditPublication(){
+
+  }
+
+  newPublication(){
+    this.isANewRent = false;
+    this.isCreatePublication = true ;
+    this.isSelectVehicleRegistered = true;
     this.entity.userOfferentId = this.userCurrent.id;
 
     this.vehicleResourceApiService.searchAllTypeVehicle().subscribe(result => {
-      console.log("All types:", result);
       this.types = result;
     });
 
     this.vehicleResourceApiService.allMyVehiclesRegitered(this.userCurrent.id).subscribe(result => {
       this.vehicles = result;
 
-      if(vehicleId != undefined){
-        this.entity.vehicleId = Number(vehicleId);
-        this.vehicle = this.vehicles.filter(vehicle => vehicle.id === Number(vehicleId))[0];
+      if(this.vehicleId != undefined){
+        this.entity.vehicleId = this.vehicleId;
+        this.vehicle = this.vehicles.filter(vehicle => vehicle.id === this.vehicleId)[0];
         console.log(this.vehicle);
       }
 
     });
-
   }
 
   addImage(){
@@ -77,6 +131,18 @@ export class CreateOfferVehicleComponent implements OnInit {
     this.entity.endingDate = new Date(end);
 
     this.publicationResourceApiService.setPublication(this.entity).subscribe(result => {
+      console.log(result);
+      this.router.navigate(["offers/offered-vehicles"]);
+    });
+  }
+
+  rent(){
+
+    this.entityRent.publicationId = this.entity.id;
+    this.entityRent.userId = this.entity.userOfferentId;
+    this.entityRent.renterId = this.userCurrent.id;
+
+    this.rentResourceApiService.rentVehicle(this.entityRent).subscribe(result => {
       console.log(result);
     });
   }
