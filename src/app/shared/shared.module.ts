@@ -4,6 +4,7 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { DataTableModule } from "angular2-datatable";
 
 import { MapModule } from '../maps/map.module';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -21,14 +22,14 @@ import {TranslateModule,TranslateLoader} from '@ngx-translate/core';
 
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, HttpClientModule, MapModule, TranslateModule.forRoot({
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, HttpClientModule, MapModule, DataTableModule, TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
         })],
-  exports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MapModule]
+  exports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MapModule, DataTableModule]
 })
 export class SharedModule {
 

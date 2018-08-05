@@ -79,4 +79,10 @@ export class PublicationResourceApiService {
 
   }
 
+  public 	getallPublications(): Observable<any> {
+    const path = this.basePath + this.url + '/all-publications'
+
+    return this.httpClient.get(path);
+  }
+
 }

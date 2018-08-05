@@ -6,6 +6,8 @@ import { AUTH_PROVIDERS, AuthHttp } from 'angular2-jwt';
 import { UserResourceApiService } from './user-resource-api.service';
 import { VehicleResourceApiService } from './vehicle-resource-api.service';
 import { PublicationResourceApiService } from './publication-resource-api.service';
+import { RentResourceApiService } from './rent-resource-api.service';
+import { CreditAmountResourceApiService } from './credit-amount-resource-api.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -15,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [CommonModule, RouterModule, HttpClientModule],
-  providers: [UserResourceApiService, VehicleResourceApiService, PublicationResourceApiService]
+  providers: [UserResourceApiService, VehicleResourceApiService, PublicationResourceApiService, RentResourceApiService, CreditAmountResourceApiService]
 })
 export class ServiceModule {
 

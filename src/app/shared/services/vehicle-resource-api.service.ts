@@ -63,7 +63,13 @@ export class VehicleResourceApiService {
       const path = this.basePath + '/vehicles/get-vehicle/${id}'
           .replace('${' + 'id' + '}', String(id));
 
-       return this.http.get(path);
+      const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json'
+            })
+          };
+
+       return this.httpClient.get(path);
 
   }
 
@@ -72,7 +78,7 @@ export class VehicleResourceApiService {
       const path = this.basePath + '/vehicles/remove/${id}'
           .replace('${' + 'id' + '}', String(id));
 
-       return this.http.delete(path);
+       return this.httpClient.delete(path);
 
   }
 
@@ -107,8 +113,6 @@ export class VehicleResourceApiService {
 
   public allMyVehiclesRegitered(id: number) : Observable<any> {
 
-    // const path = this.basePath + this.url +'/all-my-vehicles-registered/${id}'
-    //     .replace('${' + 'id' + '}', String(id));
     const path = this.basePath + this.url +'/all-my-vehicles-registered'
     const url = `${path}/${id}`;
        return this.httpClient.get<any>(url);
