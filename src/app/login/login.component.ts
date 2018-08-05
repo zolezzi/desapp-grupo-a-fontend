@@ -45,10 +45,6 @@ export class LoginComponent implements OnInit {
 
   loadUser(user:SocialUser){
 
-    //userDto = new User
-
-
-
   }
 
   loadUserForSocialNetwork(){

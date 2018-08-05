@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserResourceApiService } from '../shared/services/user-resource-api.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { User } from '../model/User';
-
-declare var Materialize:any;
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-my-account',
@@ -13,10 +12,15 @@ declare var Materialize:any;
 export class MyAccountComponent implements OnInit {
 
   entity:User = {};
+  router:any;
   userSocial:any;
   isCreate:boolean = true;
 
-  constructor( protected userResourceApiService:UserResourceApiService, protected localStorageService:LocalStorageService) { }
+  constructor(protected route: ActivatedRoute, router:Router, protected userResourceApiService:UserResourceApiService, protected localStorageService:LocalStorageService) {
+
+    this.router = router;
+
+  }
 
   ngOnInit() {
 
@@ -52,7 +56,7 @@ export class MyAccountComponent implements OnInit {
     console.log("CREATE");
 
     this.userResourceApiService.createUser(this.entity).subscribe(result => {
-      console.log(result);
+      this.router.navigate(["home"]);
     });
 
   }
@@ -73,7 +77,7 @@ export class MyAccountComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    //Materialize.updateTextFields();
+
   }
 
 }

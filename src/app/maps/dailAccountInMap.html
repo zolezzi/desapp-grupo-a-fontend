@@ -1,0 +1,35 @@
+<!-- <agm-map #map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" [fitBounds]="latlngBounds" class="content-map">
+
+  <agm-marker *ngFor="let  publication of publications;" [latitude]="publication.latitude"  [longitude]="publication.longitude" [markerDraggable]="true" (markerClick)="clickedMarker(account)">
+
+    <agm-info-window>
+
+    <div *ngIf="viewAccount">
+
+    <strong> {{'app.map.type' | translate}} </strong>:
+
+    <label *ngIf="accountAddress.typeAccountCode == 'Pos' "> {{'app.account.page.pos' | translate}} </label>
+    <label *ngIf="accountAddress.typeAccountCode == 'Distributor' "> {{'app.account.page.distributor' | translate}} </label>
+    <label *ngIf="accountAddress.typeAccountCode == 'Provider' "> {{'app.account.page.provider' | translate}} </label>
+
+    <br>
+
+    <strong>{{'app.map.account' | translate}} </strong>:
+    <label> {{accountAddress.businessName}} </label>
+
+    <br>
+
+    <strong>{{'app.map.address' | translate}} </strong>:
+    <label> {{accountAddress.addressDto.addressStr}} </label>
+
+    <ng-template ngFor let-balance [ngForOf]="account.balances">
+      <br>
+      <strong>{{ 'app.account.field.balance'|translate }} {{balance.productName}} </strong>:
+      <label [ngStyle]="{ color: balance.value >= 0 ? 'green' : 'red' }" > {{balance.value | number:'.2-2'}}</label>
+    </ng-template>
+    </div>
+
+    </agm-info-window>
+  </agm-marker>
+
+</agm-map> -->

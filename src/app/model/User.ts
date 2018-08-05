@@ -17,6 +17,8 @@ export interface User {
 
     vehicles?: Array<models.VehicleDto>;
 
+    description?: string;
+
     idFacebook?: string;
 
     idGoogle?: string;
