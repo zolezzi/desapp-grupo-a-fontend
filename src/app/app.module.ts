@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DataTableModule } from "angular2-datatable";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -55,7 +56,7 @@ export function provideConfig() {
     AppComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(routes), NgbModule.forRoot(), DatepickerModule.forRoot(), BsDatepickerModule.forRoot(), HttpModule, ServiceModule, SharedModule, Ng2Webstorage,
+    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(routes), NgbModule.forRoot(), DatepickerModule.forRoot(), BsDatepickerModule.forRoot(), HttpModule, ServiceModule, SharedModule, Ng2Webstorage, DataTableModule,
     HomeModule, DashboardModule, ComponentsModule, MyAccountModule, CreditAmountModule, OfferModule, RentModule, NotificationModule, SocialLoginModule.initialize(config)
   ],
   providers: [
