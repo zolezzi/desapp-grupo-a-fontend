@@ -1,3 +1,90 @@
-<p>
-  search-vehicles works!
-</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                  <div class="card-header" data-background-color="green">
+                      <h4 class="title">Search Publication</h4>
+                  </div>
+                  <form class="form-inline">
+                  <div class="col-md-12">
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-12 col-md-4 form-group">
+                          <label class="control-label">from Date :</label>
+                          <div class="form-group form-black label-floating is-empty">
+                            <input type="text" class="form-control" name="fromDate" [(ngModel)]="filter.fromDate" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-12 col-md-4 form-group">
+                          <label class="control-label">to Date :</label>
+                          <div class="form-group form-black label-floating is-empty">
+                              <input type="text" name="toDate" [(ngModel)]="filter.toDate" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" (click)="search()" class="btn btn-success pull-right">Search</button>
+                    <div class="clearfix"></div>
+                  </div>
+                  </form>
+
+                </div>
+
+                <div [hidden]="publications?.length != 0" class="noresults2">
+                  <img src="assets/public/img/search-sad.png">
+                  <!-- <div class="nores_2line">No encontramos ningún resultado.</div>
+                  <div class="nores_3line">Intenta nuevamente cambiando algún filtro.</div> -->
+                  <div class="nores_2line">We did not find any result...</div>
+                  <div class="nores_3line">Try again changing a filter.</div>
+                </div>
+
+                <div *ngIf="publications?.length > 0" class="card">
+
+                    <div class="card-header" data-background-color="green">
+                        <h4 class="title">Result</h4>
+                        <p class="category">You operations closed</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                      <table class="table">
+                          <thead class="text-success">
+                              <tr>
+                                  <th>Image</th>
+                                  <th>Offerent</th>
+                                  <th>Brand</th>
+                                  <th>Model</th>
+                                  <th>Rent Price</th>
+                                  <th>Starting Date</th>
+                                  <th>Ending Date</th>
+                                  <th>Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let publication of publications; let i = index">
+                                  <td><img src="{{publication?.photos[0]}}" width="42px" height="42px" /></td>
+                                  <td>{{publication.userOfferentName}}</td>
+                                  <td>{{publication.brand}}</td>
+                                  <td>{{publication.model}}</td>
+                                  <td class="text-success">{{publication.rentPrice}}</td>
+                                  <td>{{publication.startingDate}}</td>
+                                  <td>{{publication.endingDate}}</td>
+                                  <td>
+                                    <span>
+                                      <a (click)="rentVehicle(publication)"><i class="material-icons">local_grocery_store</i></a>
+                                    </span>
+                                  </td>
+                              </tr>
+                            </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
