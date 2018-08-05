@@ -3,6 +3,7 @@ import { UserResourceApiService } from '../shared/services/user-resource-api.ser
 import { LocalStorageService } from 'ngx-webstorage';
 import { User } from '../model/User';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-account',

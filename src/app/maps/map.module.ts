@@ -12,7 +12,7 @@ import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
-    imports: [ReactiveFormsModule,CommonModule,  AgmCoreModule.forRoot({
+    imports: [ReactiveFormsModule,CommonModule, AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDlD2UVVjI-ySv5TJTeyUrZsCTYQjFaBeE',
           libraries: ['places']})
     ],

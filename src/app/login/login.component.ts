@@ -8,6 +8,7 @@ import { SocialUser } from "angular4-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angular4-social-login";
 import { UserResourceApiService } from '../shared/services/user-resource-api.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({

@@ -16,8 +16,8 @@ import {TranslateModule,TranslateLoader} from '@ngx-translate/core';
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
  */
- export function HttpLoaderFactory(http: HttpClient) {
-     return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+ export function HttpLoaderFactory(httpClient: HttpClient) {
+     return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
  }
 
 
@@ -29,7 +29,7 @@ import {TranslateModule,TranslateLoader} from '@ngx-translate/core';
                 deps: [HttpClient]
             }
         })],
-  exports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MapModule, DataTableModule]
+  exports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MapModule, DataTableModule]
 })
 export class SharedModule {
 

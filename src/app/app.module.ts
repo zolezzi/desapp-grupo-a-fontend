@@ -26,7 +26,8 @@ import { MyAccountModule } from './my-account/my-account.module';
 import { CreditAmountModule } from './credit-amount/credit-amount.module';
 import { OfferModule } from './offer/offer.module';
 import { RentModule } from './rent/rent.module';
-
+import {TranslateModule,TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { routes } from './app.routes';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
