@@ -5,14 +5,14 @@
                 <div class="card">
 
                   <div class="card-header" data-background-color="green">
-                      <h4 class="title">Closed Operations</h4>
+                      <h4 class="title">{{'closed.operations.title' | translate}}</h4>
                   </div>
                   <form class="form-inline">
                   <div class="col-md-12">
                     <div class="col-md-6">
                       <div class="row">
                         <div class="col-xs-12 col-12 col-md-4 form-group">
-                          <label class="control-label">from Date :</label>
+                          <label class="control-label">{{'closed.operations.fromDate' | translate}} :</label>
                           <div class="form-group form-black label-floating is-empty">
                             <input type="text" class="form-control" name="fromDate" [(ngModel)]="filter.fromDate" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
                           </div>
@@ -23,14 +23,14 @@
                     <div class="col-md-6">
                       <div class="row">
                         <div class="col-xs-12 col-12 col-md-4 form-group">
-                          <label class="control-label">to Date :</label>
+                          <label class="control-label">{{'closed.operations.toDate' | translate}} :</label>
                           <div class="form-group form-black label-floating is-empty">
                               <input type="text" name="toDate" [(ngModel)]="filter.toDate" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
                           </div>
                         </div>
                       </div>
                     </div>
-                    <button type="submit" (click)="search()" class="btn btn-success pull-right">Search</button>
+                    <button type="submit" (click)="search()" class="btn btn-success pull-right">{{'search' | translate}}</button>
                     <div class="clearfix"></div>
                   </div>
                   </form>
@@ -41,24 +41,24 @@
                   <img src="assets/public/img/search-sad.png">
                   <!-- <div class="nores_2line">No encontramos ningún resultado.</div>
                   <div class="nores_3line">Intenta nuevamente cambiando algún filtro.</div> -->
-                  <div class="nores_2line">We did not find any result...</div>
-                  <div class="nores_3line">Try again changing a filter.</div>
+                  <div class="nores_2line">{{'closed.operations.weDidNotFindAnyResult' | translate}}</div>
+                  <div class="nores_3line">{{'closed.operations.tryAgainChangingAFilter' | translate}}</div>
                 </div>
 
                 <div *ngIf="vehicles?.length > 0" class="card">
 
                     <div class="card-header" data-background-color="green">
-                        <h4 class="title">Result</h4>
-                        <p class="category">You operations closed</p>
+                        <h4 class="title">{{'closed.operations.result' | translate}}</h4>
+                        <p class="category">{{'closed.operations.yourClosedOperations' | translate}}</p>
                     </div>
                     <div class="card-content table-responsive">
                         <table class="table">
                             <thead class="text-success">
                                 <tr>
-                                    <th>Type</th>
-                                    <th>Country</th>
-                                    <th>City</th>
-                                    <th>Salary</th>
+                                    <th>{{'closed.operations.type' | translate}}</th>
+                                    <th>{{'closed.operations.country' | translate}}</th>
+                                    <th>{{'closed.operations.city' | translate}}</th>
+                                    <th>{{'closed.operations.salary' | translate}}</th>
                                 </tr>
                             </thead>
                             <tbody>

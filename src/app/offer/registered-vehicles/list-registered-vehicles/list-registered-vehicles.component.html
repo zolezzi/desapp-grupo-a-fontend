@@ -5,21 +5,21 @@
                 <div class="card">
 
                   <div class="card-header" data-background-color="green">
-                      <h4 class="title">Registered Vehicles</h4>
+                      <h4 class="title">{{'offer.vehicle.registeredVehicles' | translate}}</h4>
                   </div>
 
 
                   <div class="card-content">
-                    <button type="submit" (click)="register()" class="btn btn-success pull-right">Register</button>
+                    <button type="submit" (click)="register()" class="btn btn-success pull-right">{{'form.register' | translate}}</button>
                     <div class="clearfix"></div>
                       <form>
                           <div class="row">
                               <div class="col-md-5">
                                 <div class="form-group form-black label-floating is-empty">
-                                  <label for="selectTypeVehicle">Select Type Vehicle</label>
+                                  <label for="selectTypeVehicle">{{'offered.vehicles.selectTypeVehicle' | translate}}</label>
                                   <select class="form-control" id="selectTypeVehicle">
-                                    <option disabled selected> Select Type Vehicle</option>
-                                    <option value="1">Car</option>
+                                    <option disabled selected>{{'offered.vehicles.selectTypeVehicle' | translate}}</option>
+                                    <option value="1">{{'offered.vehicles.car' | translate}}</option>
                                     <option value="2">PickUp</option>
                                     <option value="3">Moto</option>
                                   </select>
@@ -27,7 +27,7 @@
                               </div>
                               <div class="col-md-3">
                                   <div class="form-group form-black label-floating is-empty">
-                                      <label class="control-label">Patent</label>
+                                      <label class="control-label">{{'offer.vehicle.patent' | translate}}</label>
                                       <input type="text" class="form-control" >
                                   </div>
                               </div>
@@ -42,13 +42,13 @@
                           <div class="row">
                               <div class="col-md-6">
                                   <div class="form-group form-black label-floating is-empty">
-                                      <label class="control-label">Model</label>
+                                      <label class="control-label">{{'offer.vehicle.model' | translate}}</label>
                                       <input type="text" class="form-control" >
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group form-black label-floating is-empty">
-                                      <label class="control-label">Brand</label>
+                                      <label class="control-label">{{'offer.vehicle.brand' | translate}}</label>
                                       <input type="text" class="form-control" >
                                   </div>
                               </div>
@@ -57,14 +57,14 @@
                           <div class="row">
                               <div class="col-md-12">
                                   <div class="form-group form-black label-floating is-empty">
-                                      <label class="control-label">Adress</label>
+                                      <label class="control-label">{{'offered.vehicles.address' | translate}}</label>
                                       <input type="text" class="form-control" >
                                   </div>
                               </div>
                           </div>
 
-                          <button type="submit" class="btn btn-danger pull-right">Clear</button>
-                          <button type="submit" class="btn btn-success pull-right">Search</button>
+                          <button type="submit" class="btn btn-danger pull-right">{{'offered.vehicles.clear' | translate}}</button>
+                          <button type="submit" class="btn btn-success pull-right">{{'search' | translate}}</button>
                           <div class="clearfix"></div>
                       </form>
                   </div>
@@ -72,18 +72,18 @@
                 <div class="card">
 
                     <div class="card-header" data-background-color="green">
-                        <h4 class="title">Result</h4>
-                        <p class="category">Your vehicles registered</p>
+                        <h4 class="title">{{'closed.operations.result' | translate}}</h4>
+                        <p class="category">{{'register.vehicle.yourRegisteredVehicles' | translate}}</p>
                     </div>
                     <div class="card-content table-responsive">
                         <table class="table table-striped" [mfData]="vehicles" #mf="mfDataTable" [mfRowsOnPage]="2" >
                             <thead class="text-success">
                                 <tr>
-                                    <th>Model</th>
-                                    <th>Brand</th>
-                                    <th>Passenger Capability</th>
-                                    <th>Type Vehicle</th>
-                                    <th>Actions</th>
+                                    <th>{{'offer.vehicle.model' | translate}}</th>
+                                    <th>{{'offer.vehicle.brand' | translate}}</th>
+                                    <th>{{'register.vehicle.passengerCapability' | translate}}</th>
+                                    <th>{{'register.vehicle.vehicleType' | translate}}</th>
+                                    <th>{{'register.vehicle.actions' | translate}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,9 +94,9 @@
                                     <td>{{vehicle.vehicleType}}</td>
                                     <td>
                                       <span>
-                                        <a (click)="edit(vehicle)"><i class="material-icons">edit</i></a>
-                                        <a (click)="delete(vehicle)"><i class="material-icons">delete</i></a>
-                                        <a (click)="offerVehicle(vehicle)"><i class="material-icons">local_offer</i></a>
+                                        <a (click)="edit(vehicle)"><i class="material-icons">{{'register.vehicle.edit' | translate}}</i></a>
+                                        <a (click)="delete(vehicle)"><i class="material-icons">{{'register.vehicle.delete' | translate}}</i></a>
+                                        <a (click)="offerVehicle(vehicle)"><i class="material-icons">{{'offered.vehicles.offerVehicle' | translate}} </i></a>
                                       </span>
                                     </td>
                                 </tr>

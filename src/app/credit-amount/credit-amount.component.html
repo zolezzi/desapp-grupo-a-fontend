@@ -5,7 +5,7 @@
                 <div class="card">
 
                   <div class="card-header" data-background-color="green">
-                      <h4 class="title">Load Credit</h4>
+                  <h4 class="title">{{'credit.amount.ChargeCredit' | translate}}</h4>
                   </div>
 
 
@@ -15,13 +15,13 @@
                           <div class="row">
                               <div class="col-md-3">
                                   <div class="form-group form-black label-floating is-empty">
-                                      <label class="control-label">Credit Amount</label>
+                                      <label class="control-label">{{'credit.amount' | translate}}</label>
                                       <input [(ngModel)]="amount" name="creaditAmount"type="number" class="form-control" >
                                   </div>
                               </div>
                               <div class="col-md-4">
                                   <div class="form-group form-black label-floating is-empty">
-                                      <label class="control-label">credit card</label>
+                                      <label class="control-label">{{'credit.amount.creditCard' | translate}}</label>
                                       <input type="text" class="form-control" >
                                   </div>
                               </div>
@@ -30,20 +30,25 @@
                           <div class="row">
                               <div class="col-md-6">
                                   <div class="form-group form-black label-floating is-empty">
-                                      <label class="control-label">Date venciment</label>
+                                      <label class="control-label">{{'credit.amount.expirationDate' | translate}}</label>
                                       <input type="text" class="form-control" >
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group form-black label-floating is-empty">
-                                      <label class="control-label">digit</label>
+                                      <label class="control-label">{{'credit.amount.digit' | translate}}</label>
                                       <input type="text" class="form-control" >
                                   </div>
                               </div>
                           </div>
 
+<<<<<<< HEAD
                           <button type="submit" class="btn btn-danger pull-right">Cancel</button>
                           <button type="submit" class="btn btn-success pull-right" (click)="addCredit()">Load</button>
+=======
+                          <button type="submit" class="btn btn-danger pull-right">{{'cancel' | translate}}</button>
+                          <button type="submit" class="btn btn-success pull-right">{{'credit.amount.charge' | translate}}</button>
+>>>>>>> c491b5dcbd5378642e61a88eaedb68de35dbcda4
                           <div class="clearfix"></div>
                       </form>
                   </div>
