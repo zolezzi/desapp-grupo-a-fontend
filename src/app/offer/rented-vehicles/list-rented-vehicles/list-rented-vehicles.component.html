@@ -74,24 +74,41 @@
                         <p class="category">{{'rented.vehicles.hereIsASubtitleForThisTable' | translate}}</p>
                     </div>
                     <div class="card-content table-responsive">
-                        <table class="table">
-                            <thead class="text-success">
-                                <tr>
-                                    <th>{{'rented.vehicles.name' | translate}}</th>
-                                    <th>{{'rented.vehicles.country' | translate}}</th>
-                                    <th>{{'rented.vehicles.city' | translate}}</th>
-                                    <th>{{'rented.vehicles.salary' | translate}}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td class="text-danger">$36,738</td>
-                                </tr>
-                              </tbody>
-                        </table>
+                      <table class="table">
+                          <thead class="text-success">
+                              <tr>
+                                  <!-- <th>Image</th> -->
+                                  <th>Offerent</th>
+                                  <th>Rented</th>
+                                  <th>Brand</th>
+                                  <th>Model</th>
+                                  <th>Rent Price</th>
+                                  <th>State</th>
+                                  <th>Starting Date</th>
+                                  <th>Ending Date</th>
+                                  <th>Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let rent of rents; let i = index">
+                                  <!-- <td><img src="{{rent?.photos[0]}}" width="42px" height="42px" /></td> -->
+                                  <td>{{rent.userName}}</td>
+                                  <td>{{rent.userRenterName}}</td>
+                                  <td>{{rent.brand}}</td>
+                                  <td>{{rent.model}}</td>
+                                  <td class="text-success">{{rent.rentPrice}}</td>
+                                  <td>{{rent.state}}</td>
+                                  <td>{{rent.startingDate}}</td>
+                                  <td>{{rent.endingDate}}</td>
+                                  <td>
+                                    <span>
+                                      <a (click)="confirm(rent)"><i class="material-icons">check</i></a>
+                                      <a (click)="delete(rent)"><i class="material-icons">clear</i></a>
+                                    </span>
+                                  </td>
+                              </tr>
+                            </tbody>
+                      </table>
                     </div>
                 </div>
             </div>

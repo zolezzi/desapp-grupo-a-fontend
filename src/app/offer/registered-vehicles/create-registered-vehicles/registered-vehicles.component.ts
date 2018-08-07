@@ -26,9 +26,13 @@ export class RegisteredVehiclesComponent implements OnInit {
   ngOnInit() {
 
     this.userSocial = this.localStorageService.retrieve('userSocial');
+    this.userCurrent = this.localStorageService.retrieve('userCurrent');
 
     if(this.userSocial != undefined){
-      this.loadUserForSocialNetwork(this.userSocial)
+        if(this.userCurrent == undefined){
+          this.loadUserForSocialNetwork(this.userSocial)
+        }
+
     }
 
     this.vehicleResourceApiService.searchAllTypeVehicle().subscribe(result => {
@@ -42,14 +46,14 @@ export class RegisteredVehiclesComponent implements OnInit {
   loadUserForSocialNetwork(userSocial:any){
 
     if(this.userSocial.provider === "GOOGLE"){
-      this.entity.idGoogle = this.userSocial.provider + "-" + this.userSocial.id;
+      this.userSocial.idGoogle = this.userSocial.provider + "-" + this.userSocial.id;
     }
 
     if(this.userSocial.provider === "FACEBOOK"){
-      this.entity.idFacebook = this.userSocial.provider + "-" + this.userSocial.id;
+      this.userSocial.idFacebook = this.userSocial.provider + "-" + this.userSocial.id;
     }
 
-    this.userResourceApiService.getUserForSocialNetwork(this.entity).subscribe(result => {
+    this.userResourceApiService.getUserForSocialNetwork(this.userSocial).subscribe(result => {
       console.log(result);
 
       this.userCurrent = result;
@@ -62,7 +66,7 @@ export class RegisteredVehiclesComponent implements OnInit {
     this.entity.userId = this.userCurrent.id;
     console.log("Input Value:", this.entity);
     this.vehicleResourceApiService.addVehicle(this.entity).subscribe(result => {
-      this.router.navigate(["offers"]);
+      this.router.navigate(["offers/registered-vehicles"]);
     });
   }
 

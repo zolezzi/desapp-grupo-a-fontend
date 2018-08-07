@@ -29,6 +29,7 @@
   "offer.vehicle.endingDate":"Fecha de Cierre",
   "offer.vehicle.createOffer":"Crear Oferta",
   "offer.vehicle.offerent":"Oferente",
+  "offer.vehicle.aboutMyVehicle":"detalles del vehiculo",
 
   "credit.amount.chargeCredit":"Cargar Crédito",
   "credit.amount":"Cantidad de Crédito",
@@ -47,7 +48,7 @@
   "closed.operations.title":"Operaciones Cerradas",
   "closed.operations.fromDate":"desde Fecha",
   "closed.operations.toDate":"hasta Fecha",
-  "closed.operations.weDidNotFindAnyResults":"No encontramos ningún resultado...",
+  "closed.operations.weDidNotFindAnyResult":"No encontramos ningún resultado...",
   "closed.operations.tryAgainChangingAFilter":"Inténtelo nuevamente modificando algún filtro.",
   "closed.operations.result": "Resultado",
   "closed.operations.yourClosedOperations": "Tus operaciones cerradas",

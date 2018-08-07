@@ -49,7 +49,7 @@ export class MapsComponent implements OnInit {
     this.setCurrentPosition();
 
     //load Places Autocomplete
-    this.mapsAPILoader.load().then(() => {debugger;
+    this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ["address"]
       });

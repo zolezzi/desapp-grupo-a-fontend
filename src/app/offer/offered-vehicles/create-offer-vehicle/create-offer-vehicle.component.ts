@@ -20,6 +20,7 @@ export class CreateOfferVehicleComponent implements OnInit {
   vehicle: any = {};
   vehicles: Array<any> = [];
   router: any;
+  routeActive:any = {};
   userCurrent:any;
   types: Array<any> = [];
   disabled: boolean = true;
@@ -33,18 +34,19 @@ export class CreateOfferVehicleComponent implements OnInit {
     protected vehicleResourceApiService:VehicleResourceApiService, protected publicationResourceApiService:PublicationResourceApiService,
     protected localStorageService:LocalStorageService, protected rentResourceApiService:RentResourceApiService) {
 
-      this.router = route;
+      this.routeActive = route;
+      this.router = router;
   }
 
   ngOnInit() {
 
     this.images = [];
 
-    var vehicleIdForParameter = this.router.snapshot.params["id"];
+    var vehicleIdForParameter = this.routeActive.snapshot.params["id"];
 
     this.vehicleId = Number(vehicleIdForParameter);
 
-    var value = this.router.snapshot.url[2].path;
+    var value = this.routeActive.snapshot.url[2].path;
 
     this.userCurrent = this.localStorageService.retrieve('userCurrent');
 
@@ -70,7 +72,7 @@ export class CreateOfferVehicleComponent implements OnInit {
     this.isANewRent = true;
     this.isCreatePublication = false;
     this.vehicles = [];
-    var publicationId = this.router.snapshot.params["id"];
+    var publicationId = this.routeActive.snapshot.params["id"];
 
     this.publicationResourceApiService.getPublication(Number(publicationId)).subscribe(result => {
 
@@ -144,6 +146,7 @@ export class CreateOfferVehicleComponent implements OnInit {
 
     this.rentResourceApiService.rentVehicle(this.entityRent).subscribe(result => {
       console.log(result);
+      this.router.navigate(["rents/rent-vehicles"]);
     });
   }
 

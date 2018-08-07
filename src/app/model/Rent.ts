@@ -10,4 +10,21 @@ export interface Rent {
     renterId?: number;
 
     userId?: number;
+
+    model?: string;
+
+    brand?: string;
+
+    userName?: string;
+
+    state?: string;
+
+    rentPrice?:number;
+
+    userRenterName?: string;
+
+    startingDate?: Date ;
+
+    endingDate?: Date ;
+
 }

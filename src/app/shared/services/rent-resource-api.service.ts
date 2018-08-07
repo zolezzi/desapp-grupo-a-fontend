@@ -21,7 +21,7 @@ export class RentResourceApiService {
 
   public getRent(rentId:number) : Observable<any> {
 
-      const path = this.basePath + this.url +'/get-rent/{rentId}'
+      const path = this.basePath + this.url +'/get-rent/${rentId}'
           .replace('${' + 'rentId' + '}', String(rentId));
 
        return this.httpClient.get(path);
@@ -60,10 +60,10 @@ export class RentResourceApiService {
         return this.httpClient.post(path, params, httpOptions);
   }
 
-  public confirmWithdraw(rentDto: any): Observable<any>{
-        let json = JSON.stringify(rentDto);
-
-        let params = json;
+  public confirmWithdraw(id:number, userId:number): Observable<any>{
+        // let json = JSON.stringify(rentDto);
+        //
+        let params = undefined;
 
         const httpOptions = {
               headers: new HttpHeaders({
@@ -71,7 +71,9 @@ export class RentResourceApiService {
               })
             };
 
-        const path = this.basePath + this.url + '/confirm-withdraw'
+        const path = this.basePath + this.url + '/confirm-withdraw/${id}/${userId}'
+        .replace('${' + 'id' + '}', String(id))
+        .replace('${' + 'userId' + '}', String(userId));
 
         return this.httpClient.post(path, params, httpOptions);
   }
@@ -100,5 +102,24 @@ export class RentResourceApiService {
        return this.httpClient.get(path);
 
   }
+
+  public findAllRents(id:number) : Observable<any> {
+
+      const path = this.basePath + this.url +'/all-rents/${id}'
+          .replace('${' + 'id' + '}', String(id));
+
+       return this.httpClient.get(path);
+
+  }
+
+
+    public findAllRentsByVehicleOwner(id:number) : Observable<any> {
+
+        const path = this.basePath + this.url +'/all-rents-owner-vehicle/${id}'
+            .replace('${' + 'id' + '}', String(id));
+
+         return this.httpClient.get(path);
+
+    }
 
 }

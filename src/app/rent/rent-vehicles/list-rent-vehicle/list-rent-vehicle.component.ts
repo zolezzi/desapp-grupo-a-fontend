@@ -8,11 +8,11 @@ import { PublicationResourceApiService } from '../../../shared/services/publicat
 import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
-  selector: 'app-list-rented-vehicles',
-  templateUrl: './list-rented-vehicles.component.html',
-  styleUrls: ['./list-rented-vehicles.component.scss']
+  selector: 'app-list-rent-vehicle',
+  templateUrl: './list-rent-vehicle.component.html',
+  styleUrls: ['./list-rent-vehicle.component.scss']
 })
-export class ListRentedVehiclesComponent implements OnInit {
+export class ListRentVehicleComponent implements OnInit {
 
   rents:Array<any> = [];
   router:any;
@@ -27,30 +27,25 @@ export class ListRentedVehiclesComponent implements OnInit {
 
     this.userCurrent = this.localStorageService.retrieve('userCurrent');
 
-    this.rentResourceApiService.findAllRentsByVehicleOwner(this.userCurrent.id).subscribe(results => {
+    this.rentResourceApiService.findAllRents(this.userCurrent.id).subscribe(results => {
 
       this.rents = results;
 
     });
-
   }
 
   findAll(){
-    this.rentResourceApiService.findAllRentsByVehicleOwner(this.userCurrent.id).subscribe(results => {
+
+    this.rentResourceApiService.findAllRents(this.userCurrent.id).subscribe(results => {
 
       this.rents = results;
 
     });
+    
   }
 
-  confirm(rent:any){
+  confirmReturn(rent:any){
     this.rentResourceApiService.confirmWithdraw(rent.id, this.userCurrent.id).subscribe(result => {
-      this.findAll();
-    });
-  }
-
-  delete(rent:any){
-    this.rentResourceApiService.cancelRent(rent).subscribe(result => {
       this.findAll();
     });
   }

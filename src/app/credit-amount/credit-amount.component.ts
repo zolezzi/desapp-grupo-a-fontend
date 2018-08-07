@@ -3,6 +3,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { User } from '../model/User';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CreditAmountResourceApiService } from '../shared/services/credit-amount-resource-api.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-credit-amount',
@@ -36,7 +37,7 @@ export class CreditAmountComponent implements OnInit {
     this.creditAmountResourceApiService.addCredit(id, this.amount).subscribe(result => {
       this.localStorageService.store('userCurrent', result);
       this.amount = null;
-      
+      this.router.navigate(["/home"]);
     });
   }
 
