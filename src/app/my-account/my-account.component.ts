@@ -4,6 +4,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { User } from '../model/User';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { ErrorHandler } from '../shared/utils/util/util.component';
 
 @Component({
   selector: 'app-my-account',
@@ -16,8 +17,10 @@ export class MyAccountComponent implements OnInit {
   router:any;
   userSocial:any;
   isCreate:boolean = true;
+  errorMessage:string
 
-  constructor(protected route: ActivatedRoute, router:Router, protected userResourceApiService:UserResourceApiService, protected localStorageService:LocalStorageService) {
+  constructor(protected route: ActivatedRoute, router:Router, protected userResourceApiService:UserResourceApiService,
+     protected localStorageService:LocalStorageService, private errorHandler: ErrorHandler,) {
 
     this.router = router;
 
@@ -58,6 +61,8 @@ export class MyAccountComponent implements OnInit {
 
     this.userResourceApiService.createUser(this.entity).subscribe(result => {
       this.router.navigate(["home"]);
+    }, error => {
+      this.errorMessage = this.errorHandler.handleError(error);
     });
 
   }

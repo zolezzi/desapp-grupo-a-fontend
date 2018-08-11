@@ -10,6 +10,7 @@ import { MapModule } from '../maps/map.module';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {ServiceModule} from './services/service.module';
 import {TranslateModule,TranslateLoader} from '@ngx-translate/core';
+import { UtilComponent, ErrorHandler, ErrorDisplayer } from './utils/util/util.component';
 
 
 
@@ -29,7 +30,9 @@ import {TranslateModule,TranslateLoader} from '@ngx-translate/core';
                 deps: [HttpClient]
             }
         })],
-  exports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MapModule, DataTableModule]
+  exports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MapModule, DataTableModule, ErrorDisplayer],
+  declarations: [UtilComponent, ErrorDisplayer ],
+  providers: [ErrorHandler]
 })
 export class SharedModule {
 
