@@ -91,11 +91,16 @@
   "myAccount.subTitle": "Complete los datos de su Cuenta",
   "myAccount.firstName": "Nombre",
   "myAccount.lastName": "Apellido",
+  "myAccount.aboutMe": "Acerca de mí",
   "myAccount.description": "Descripción",
   "myAccount.updateAccount": "Actualizar Cuenta",
   "myAccount.createAccount": "Crear Cuenta",
 
   "offer.offeredVehicles": "Vehículos Ofertados",
+
+  "rent.closedRents": "Rentas Cerradas",
+  "rent.searchVehicles": "Buscar Vehículos",
+  "rent.rentedVehicles": "Vehículos Rentados",
 
   "pageMap.title": "Escriba su dirección",
 
